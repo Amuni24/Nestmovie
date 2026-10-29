@@ -2,8 +2,6 @@
 
 Nestmovie is a movie discovery website that lets users search and explore movies by title, genre, rating, and release date. Users can view movie details, discover popular and recommended movies, and save movies to a personal watchlist. It makes it easier to find movies and keep track of what to watch next.
 
-> **Technology rule:** built with **plain HTML, CSS, and JavaScript (ES6 modules) only**. No frameworks, no libraries, no build tools.
-
 ---
 
 ## Team
