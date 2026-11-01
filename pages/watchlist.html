@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Watchlist — Nestmovie</title>
+</head>
+<body>
+  <header >
+    <nav >
+      <a >Nestmovie</a>
+      <ul class="navbar__list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="watchlist.html" aria-current="page">My Watchlist</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main >
+    <header>
+      <h1 >My Watchlist</h1>
+      <p>
+        <span>0</span> movies saved
+      </p>
+    </header>
+
+    <form>
+      <div>
+        <label for="watchlist-filter">Filter</label>
+        <select  name="filter">
+          <option value="all" selected>All</option>
+          <option value="unwatched">Want to watch</option>
+          <option value="watched">Watched</option>
+          <option value="favorites">Favorites</option>
+        </select>
+      </div>
+      <div class="watchlist__control">
+        <label for="watchlist-sort">Sort by</label>
+        <select id="watchlist-sort" name="sort">
+          <option value="newest" selected>Newest added</option>
+          <option value="oldest">Oldest added</option>
+          <option value="az">Title A–Z</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+    </form>
+
+    <p class="watchlist__state" id="watchlist-loading" hidden>Loading your watchlist…</p>
+
+    <div class="watchlist__state" id="watchlist-empty" hidden>
+      <p>Your watchlist is empty.</p>
+      <a href="search.html">Find movies to add</a>
+    </div>
+
+    <div class="watchlist__state" id="watchlist-error" hidden>
+      <p>We couldn't load your watchlist.</p>
+      <button type="button" id="watchlist-retry">Try again</button>
+    </div>
+
+    <section>
+      <article >
+        <div></div>
+        <div>
+          <h2>Inception</h2>
+          <p>2010 · 8.8</p>
+          <p >
+            <span >Watched</span>
+            <span >Favorite</span>
+          </p>
+          <div class="movie-card__actions">
+            <button type="button" data-action="toggle-watched" data-movie-id="m001" aria-pressed="true">Mark unwatched</button>
+            <button type="button" data-action="toggle-favorite" data-movie-id="m001" aria-pressed="true">Unfavorite</button>
+            <button type="button" data-action="remove" data-movie-id="m001">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <article >
+        <div ></div>
+        <div >The Dark Knight</h2>
+          <p >2008 · 9.0</p>
+          <div >
+            <button type="button" data-action="toggle-watched" data-movie-id="m002" aria-pressed="false">Mark watched</button>
+            <button type="button" data-action="toggle-favorite" data-movie-id="m002" aria-pressed="false">Favorite</button>
+            <button type="button" data-action="remove" data-movie-id="m002">Remove</button>
+          </div>
+        </div>
+      </article>
+
+      <article  data-movie-id="m003">
+        <div ></div>
+        <div >
+          <h2>Spirited Away</h2>
+          <p >2001 · 8.6</p>
+          <p>
+            <span>Favorite</span>
+          </p>
+          <div class="movie-card__actions">
+            <button type="button" data-action="toggle-watched" data-movie-id="m003" aria-pressed="false">Mark watched</button>
+            <button type="button" data-action="toggle-favorite" data-movie-id="m003" aria-pressed="true">Unfavorite</button>
+            <button type="button" data-action="remove" data-movie-id="m003">Remove</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Nestmovie — find your next watch.</p>
+  </footer>
+</body>
+</html>
