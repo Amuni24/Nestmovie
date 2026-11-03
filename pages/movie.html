@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore movie information, trailers, cast, ratings, and recommendations on NestMovie.">
+    <title>Movie Details | NestMovie</title>
+</head>
+
+<body>
+
+    <!-- Main Navigation -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="../index.html" class="logo">NestMovie</a>
+
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="search.html">Discover</a></li>
+                <li><a href="watchlist.html">My Watchlist</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Movie Details Content -->
+    <main class="movie-details-page">
+
+        <!-- Movie Hero Section -->
+        <section class="movie-hero" aria-labelledby="movie-title">
+
+            <div class="movie-poster">
+                <img
+                    src="../assets/images/movie-placeholder.jpg"
+                    alt="Movie poster"
+                    id="movie-poster"
+                >
+            </div>
+
+            <div class="movie-hero-content">
+
+                <p class="movie-tagline" id="movie-tagline">
+                    Discover your next favorite movie.
+                </p>
+
+                <h1 id="movie-title">Movie Title</h1>
+
+                <div class="movie-meta">
+                    <span id="movie-year">Release Year</span>
+                    <span id="movie-runtime">Runtime</span>
+                    <span id="movie-rating">Rating</span>
+                </div>
+
+                <div class="movie-genres" id="movie-genres">
+                    <!-- Movie genres will be displayed here -->
+                </div>
+
+                <div class="movie-actions">
+                    <button type="button" id="watch-trailer-btn">
+                        Watch Trailer
+                    </button>
+
+                    <button type="button" id="add-watchlist-btn">
+                        Add to Watchlist
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 NestMovie. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
