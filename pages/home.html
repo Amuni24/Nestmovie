@@ -47,9 +47,61 @@
         <a href="#trending">Explore trending movies</a>
       </section>
 
-      <section id="trending" aria-labelledby="trending-title">
+      <section
+        id="trending"
+        aria-labelledby="trending-title"
+        aria-roledescription="carousel"
+      >
         <h2 id="trending-title">Trending now</h2>
         <p>Popular picks to get your watchlist started.</p>
+        <nav aria-label="Choose a trending movie">
+          <a href="#trending-dune">Dune: Part Two</a>
+          <a href="#trending-oppenheimer">Oppenheimer</a>
+          <a href="#trending-spider-verse">Spider-Man: Across the Spider-Verse</a>
+        </nav>
+        <ol aria-label="Trending movies">
+          <li id="trending-dune">
+            <article aria-labelledby="trending-dune-title">
+              <img
+                src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
+                alt="Dune: Part Two movie poster"
+                width="500"
+                height="750"
+                loading="lazy"
+              >
+              <h3 id="trending-dune-title">Dune: Part Two</h3>
+              <p>2024 · Science fiction · ★ 8.5</p>
+            </article>
+          </li>
+          <li id="trending-oppenheimer">
+            <article aria-labelledby="trending-oppenheimer-title">
+              <img
+                src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg"
+                alt="Oppenheimer movie poster"
+                width="500"
+                height="750"
+                loading="lazy"
+              >
+              <h3 id="trending-oppenheimer-title">Oppenheimer</h3>
+              <p>2023 · Drama · ★ 8.1</p>
+            </article>
+          </li>
+          <li id="trending-spider-verse">
+            <article aria-labelledby="trending-spider-verse-title">
+              <img
+                src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
+                alt="Spider-Man: Across the Spider-Verse movie poster"
+                width="500"
+                height="750"
+                loading="lazy"
+              >
+              <h3 id="trending-spider-verse-title">
+                Spider-Man: Across the Spider-Verse
+              </h3>
+              <p>2023 · Animation · ★ 8.6</p>
+            </article>
+          </li>
+        </ol>
       </section>
 
       <section id="featured" aria-labelledby="featured-title">
