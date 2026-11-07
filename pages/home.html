@@ -107,11 +107,97 @@
       <section id="featured" aria-labelledby="featured-title">
         <h2 id="featured-title">Featured movies</h2>
         <p>Discover a few of our hand-picked favorites.</p>
+        <ul aria-label="Featured movie picks">
+          <li>
+            <article aria-labelledby="featured-oppenheimer-title">
+              <img
+                src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg"
+                alt="Oppenheimer movie poster"
+                width="500"
+                height="750"
+                loading="lazy"
+              >
+              <h3 id="featured-oppenheimer-title">Oppenheimer</h3>
+              <p>A drama about the scientist behind the atomic bomb.</p>
+            </article>
+          </li>
+          <li>
+            <article aria-labelledby="featured-batman-title">
+              <img
+                src="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg"
+                alt="The Batman movie poster"
+                width="500"
+                height="750"
+                loading="lazy"
+              >
+              <h3 id="featured-batman-title">The Batman</h3>
+              <p>A detective story set in Gotham City.</p>
+            </article>
+          </li>
+          <li>
+            <article aria-labelledby="featured-everything-title">
+              <img
+                src="https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg"
+                alt="Everything Everywhere All at Once movie poster"
+                width="500"
+                height="750"
+                loading="lazy"
+              >
+              <h3 id="featured-everything-title">
+                Everything Everywhere All at Once
+              </h3>
+              <p>An unexpected adventure across the multiverse.</p>
+            </article>
+          </li>
+        </ul>
       </section>
 
       <section id="genres" aria-labelledby="genres-title">
         <h2 id="genres-title">Browse by genre</h2>
         <p>Choose a genre to find a movie that fits your mood.</p>
+        <nav aria-label="Movie genres">
+          <ul>
+            <li><a href="#genre-action">Action</a></li>
+            <li><a href="#genre-comedy">Comedy</a></li>
+            <li><a href="#genre-drama">Drama</a></li>
+            <li><a href="#genre-science-fiction">Science fiction</a></li>
+          </ul>
+        </nav>
+        <section id="genre-action" aria-labelledby="genre-action-title">
+          <h3 id="genre-action-title">Action</h3>
+          <ul>
+            <li>Mad Max: Fury Road</li>
+            <li>Black Panther</li>
+            <li>Mission: Impossible – Fallout</li>
+          </ul>
+        </section>
+        <section id="genre-comedy" aria-labelledby="genre-comedy-title">
+          <h3 id="genre-comedy-title">Comedy</h3>
+          <ul>
+            <li>Barbie</li>
+            <li>Paddington 2</li>
+            <li>The Grand Budapest Hotel</li>
+          </ul>
+        </section>
+        <section id="genre-drama" aria-labelledby="genre-drama-title">
+          <h3 id="genre-drama-title">Drama</h3>
+          <ul>
+            <li>Oppenheimer</li>
+            <li>Past Lives</li>
+            <li>The Shawshank Redemption</li>
+          </ul>
+        </section>
+        <section
+          id="genre-science-fiction"
+          aria-labelledby="genre-science-fiction-title"
+        >
+          <h3 id="genre-science-fiction-title">Science fiction</h3>
+          <ul>
+            <li>Dune: Part Two</li>
+            <li>Arrival</li>
+            <li>Everything Everywhere All at Once</li>
+          </ul>
+        </section>
       </section>
     </main>
 
