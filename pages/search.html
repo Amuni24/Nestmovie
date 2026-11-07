@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search and filter movies by title, genre, rating, release year, and language on Nestmovie.">
+  <title>Search & Discover — Nestmovie</title>
+
+  <!-- Base Stylesheets -->
+  <link rel="stylesheet" href="../css/base/reset.css">
+  <link rel="stylesheet" href="../css/base/variables.css">
+  <link rel="stylesheet" href="../css/base/typography.css">
+  <link rel="stylesheet" href="../css/base/layout.css">
+
+  <!-- Component Stylesheets -->
+  <link rel="stylesheet" href="../css/components/navbar.css">
+  <link rel="stylesheet" href="../css/components/footer.css">
+  <link rel="stylesheet" href="../css/components/buttons.css">
+  <link rel="stylesheet" href="../css/components/forms.css">
+  <link rel="stylesheet" href="../css/components/movie-card.css">
+  <link rel="stylesheet" href="../css/components/filter-panel.css">
+  <link rel="stylesheet" href="../css/components/states.css">
+
+  <!-- Page Stylesheet -->
+  <link rel="stylesheet" href="../css/pages/search.css">
+</head>
+<body class="search-page">
+
+  <!-- Main Navigation -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="../index.html" class="navbar__logo">Nestmovie</a>
+      <ul class="navbar__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="search.html" class="active" aria-current="page">Search</a></li>
+        <li><a href="watchlist.html">My Watchlist</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="search-page__main container">
+
+    <header class="search-page__header">
+      <h1 class="search-page__title">Search & Discover</h1>
+      <p class="search-page__subtitle">Find movies by title, genre, release year, language, or rating.</p>
+    </header>
+
+    <!-- Search Form & Advanced Filter Panel -->
+    <form id="search-form" class="search-form" role="search" novalidate>
+
+      <!-- 1. Search Bar -->
+      <div class="search-form__bar">
+        <label for="search-input" class="visually-hidden">Search by title</label>
+        <div class="search-input-wrapper">
+          <input
+            type="search"
+            id="search-input"
+            name="q"
+            class="search-form__input"
+            placeholder="Type a movie title..."
+            autocomplete="off"
+          >
+          <button type="submit" id="search-submit-btn" class="btn btn--primary" aria-label="Submit search">
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Filter Controls (Advanced Filter Panel) -->
+      <fieldset id="filter-panel" class="filter-panel">
+        <legend class="filter-panel__legend">Filters</legend>
+        <div class="filter-panel__grid">
+
+          <!-- Genre Filter -->
+          <div class="form-group filter-panel__group">
+            <label for="genre-select" class="form-label">Genre</label>
+            <select id="genre-select" name="genre" class="form-select">
+              <option value="">All Genres</option>
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Animation">Animation</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Crime">Crime</option>
+              <option value="Documentary">Documentary</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Horror">Horror</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Thriller">Thriller</option>
+            </select>
+          </div>
+
+          <!-- Minimum Rating Filter -->
+          <div class="form-group filter-panel__group">
+            <label for="rating-select" class="form-label">Minimum Rating</label>
+            <select id="rating-select" name="rating" class="form-select">
+              <option value="0">Any Rating</option>
+              <option value="9">★ 9.0+</option>
+              <option value="8">★ 8.0+</option>
+              <option value="7">★ 7.0+</option>
+              <option value="6">★ 6.0+</option>
+              <option value="5">★ 5.0+</option>
+            </select>
+          </div>
+
+          <!-- Release Year Filter -->
+          <div class="form-group filter-panel__group">
+            <label for="year-input" class="form-label">Release Year</label>
+            <input
+              type="number"
+              id="year-input"
+              name="year"
+              class="form-input"
+              placeholder="e.g. 2024"
+              min="1900"
+              max="2026"
+            >
+          </div>
+
+          <!-- Language Filter -->
+          <div class="form-group filter-panel__group">
+            <label for="language-select" class="form-label">Language</label>
+            <select id="language-select" name="language" class="form-select">
+              <option value="">All Languages</option>
+              <option value="English">English</option>
+              <option value="Amharic">Amharic</option>
+              <option value="Spanish">Spanish</option>
+              <option value="French">French</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Korean">Korean</option>
+              <option value="Japanese">Japanese</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="filter-panel__actions">
+          <button type="reset" id="filter-reset-btn" class="btn btn--secondary">
+            Clear Filters
+          </button>
+        </div>
+      </fieldset>
+
+      <!-- 3. Sorting Controls & Results Counter Bar -->
+      <div class="search-toolbar">
+        <div class="search-toolbar__count" aria-live="polite">
+          <p id="result-count" class="result-count">Showing movies...</p>
+        </div>
+
+        <div class="search-toolbar__sort">
+          <label for="sort-select" class="form-label">Sort by:</label>
+          <select id="sort-select" name="sort" class="form-select">
+            <option value="rating">Rating (High to Low)</option>
+            <option value="newest">Release Date (Newest)</option>
+            <option value="oldest">Release Date (Oldest)</option>
+            <option value="az">Title (A–Z)</option>
+          </select>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- 4. Three Mandatory State Views (Loading, Empty, Error) -->
+    <div id="search-loading" class="state state--loading" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading movies…</p>
+    </div>
+
+    <div id="search-empty" class="state state--empty" hidden aria-live="polite">
+      <h2 class="state__title">No movies found</h2>
+      <p class="state__message">Try adjusting your search terms or clearing some filters.</p>
+      <button type="button" id="empty-reset-btn" class="btn btn--secondary">Reset All Filters</button>
+    </div>
+
+    <div id="search-error" class="state state--error" hidden aria-live="assertive">
+      <h2 class="state__title">Unable to load movies</h2>
+      <p class="state__message">There was an issue fetching the movie catalog. Please try again.</p>
+      <button type="button" id="retry-btn" class="btn btn--primary">Try Again</button>
+    </div>
+
+    <!-- 5. Dynamic Movie Results Grid -->
+    <section
+      id="search-results"
+      class="movie-grid"
+      aria-label="Movie search results"
+      aria-live="polite"
+    >
+      <!-- Person 4's movieCard component will insert movie cards here -->
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Nestmovie</p>
+  </footer>
+
+  <!-- Single Entry ES6 Module Script -->
+  <script type="module" src="../js/pages/search.js"></script>
+</body>
+</html>
