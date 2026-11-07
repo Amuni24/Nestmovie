@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover your next favorite movie with Reelgood: trending picks, handpicked features, and movies by genre."
+    />
+    <meta name="theme-color" content="#10110f" />
+    <title>Reelgood — Find your next favorite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Reelgood home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>reelgood<span class="brand-period">.</span></span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+        <a class="nav-link is-active" href="#home">Discover</a>
+        <a class="nav-link" href="#trending">Trending</a>
+        <a class="nav-link" href="#featured">Movies</a>
+        <a class="nav-link" href="#genres">Genres</a>
+      </nav>
+
+      <a class="header-cta" href="#trending">
+        <span>Find a movie</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-backdrop" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span class="live-dot"></span> Your next movie night starts here</p>
+          <h1 id="hero-title">A good story<br />changes <span>everything.</span></h1>
+          <p class="hero-description">
+            Find the films you’ll be thinking about long after the credits roll.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#trending">
+              Explore movies <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-quiet" href="#featured">
+              <span class="play-icon" aria-hidden="true">▶</span> Editor’s picks
+            </a>
+          </div>
+          <div class="hero-meta" aria-label="Movie recommendation highlights">
+            <div class="avatar-stack" aria-hidden="true">
+              <span>J</span><span>M</span><span>A</span><span>+</span>
+            </div>
+            <p><strong>12k+</strong> movie lovers found their next favorite</p>
+          </div>
+        </div>
+        <div class="hero-caption">
+          <span class="caption-line"></span>
+          <span>Stories worth staying in for</span>
+        </div>
+        <a class="scroll-cue" href="#trending" aria-label="Scroll to trending movies">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="content-section trending-section" id="trending" aria-labelledby="trending-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">The conversation starters</p>
+            <h2 id="trending-title">Trending <span>this week</span></h2>
+          </div>
+          <div class="carousel-controls" aria-label="Trending movie carousel controls">
+            <button class="carousel-button" type="button" data-carousel="previous" aria-label="Show previous movies">
+              <span aria-hidden="true">←</span>
+            </button>
+            <button class="carousel-button" type="button" data-carousel="next" aria-label="Show more movies">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="movie-rail"
+          id="trending-movies"
+          aria-label="Trending movies"
+          tabindex="0"
+        ></div>
+      </section>
+
+      <section class="content-section featured-section" id="featured" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">Handpicked for your watchlist</p>
+            <h2 id="featured-title">Worth your <span>time</span></h2>
+          </div>
+          <a class="text-link" href="#genres">Explore all genres <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="featured-grid" id="featured-movies"></div>
+      </section>
+
+      <section class="content-section genres-section" id="genres" aria-labelledby="genres-title">
+        <div class="section-heading genre-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">Pick a feeling, find a film</p>
+            <h2 id="genres-title">Made for your <span>mood</span></h2>
+          </div>
+        </div>
+        <div class="genre-tabs" id="genre-tabs" role="group" aria-label="Filter movies by genre"></div>
+        <div class="genre-grid" id="genre-movies" aria-live="polite"></div>
+      </section>
+
+      <section class="closing-banner" aria-label="Movie discovery">
+        <div>
+          <p class="eyebrow">One more for the road?</p>
+          <h2>Your next favorite is<br /><span>closer than you think.</span></h2>
+        </div>
+        <a class="button button-primary" href="#home">Back to the top <span aria-hidden="true">↑</span></a>
+        <div class="banner-orbit banner-orbit-one" aria-hidden="true"></div>
+        <div class="banner-orbit banner-orbit-two" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>reelgood<span class="brand-period">.</span></span>
+      </a>
+      <p>Good stories. Great nights. © <span id="current-year"></span> Reelgood</p>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+
+    <dialog class="movie-dialog" id="movie-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="Close movie details">×</button>
+      <div class="dialog-art" id="dialog-art"></div>
+      <div class="dialog-content">
+        <p class="eyebrow" id="dialog-eyebrow"></p>
+        <h2 id="dialog-title"></h2>
+        <p class="dialog-description" id="dialog-description"></p>
+        <div class="dialog-facts" id="dialog-facts"></div>
+        <button class="button button-primary dialog-watchlist" type="button">
+          Add to watchlist <span aria-hidden="true">+</span>
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>
