@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Nestmovie Filter Panel Component (Person 3 Deliverable)
+   Faithfully styled from SearchView.tsx in Demo_temp
+   ========================================================================== */
+
+/* Search Bar Wrapper */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-form__bar {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.search-form__input {
+  width: 100%;
+  padding: 0.875rem 3rem 0.875rem 3rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  font-size: 0.9375rem;
+  color: var(--text-white);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.search-form__input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-form__input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 1px var(--color-gold);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.search-clear-btn:hover {
+  color: var(--text-white);
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Discovery Filters Container */
+.filter-panel {
+  background-color: var(--bg-surface-glass);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .filter-panel {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+/* Filter Panel Header */
+.filter-panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.filter-panel__title-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #cbd5e1;
+}
+
+.filter-panel__icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-gold);
+}
+
+.filter-panel__badge {
+  background-color: var(--color-gold);
+  color: #000000;
+  font-size: 0.625rem;
+  font-weight: 800;
+  padding: 0.125rem 0.4rem;
+  border-radius: var(--radius-full);
+}
+
+.filter-panel__reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.filter-panel__reset-btn:hover {
+  color: var(--color-gold);
+}
+
+.filter-panel__reset-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+/* Filter Controls Grid (5 Columns on Desktop) */
+.filter-panel__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .filter-panel__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .filter-panel__grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Individual Filter Field Group */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.filter-group__label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.filter-group__label-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--color-gold);
+}
+
+.filter-group__label-icon--star {
+  color: var(--text-yellow);
+}
+
+.filter-group__select,
+.filter-group__input {
+  width: 100%;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: #e2e8f0;
+  outline: none;
+  transition: border-color 0.2s ease;
+  appearance: auto;
+}
+
+.filter-group__select option {
+  background-color: var(--bg-surface);
+  color: var(--text-white);
+}
+
+.filter-group__select:focus,
+.filter-group__input:focus {
+  border-color: var(--color-gold);
+}
+
+/* Results Count Bar & Sorting Controls */
+.search-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+}
+
+.search-toolbar__count strong {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.search-toolbar__highlight {
+  color: var(--color-gold);
+}

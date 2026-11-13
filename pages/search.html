@@ -3,203 +3,645 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Search and filter movies by title, genre, rating, release year, and language on Nestmovie.">
-  <title>Search & Discover — Nestmovie</title>
+  <title>NestMovie - Search & Discover</title>
+  <meta name="description" content="Discover trending movies, explore curated genres, watch trailers, filter cinema releases, and organize your personal watchlist with NestMovie.">
 
-  <!-- Base Stylesheets -->
-  <link rel="stylesheet" href="../css/base/reset.css">
+  <!-- Google Fonts (Exact match to Demo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Base & Theme Stylesheets -->
   <link rel="stylesheet" href="../css/base/variables.css">
-  <link rel="stylesheet" href="../css/base/typography.css">
-  <link rel="stylesheet" href="../css/base/layout.css">
+  <link rel="stylesheet" href="../css/base/reset.css">
 
   <!-- Component Stylesheets -->
   <link rel="stylesheet" href="../css/components/navbar.css">
-  <link rel="stylesheet" href="../css/components/footer.css">
-  <link rel="stylesheet" href="../css/components/buttons.css">
-  <link rel="stylesheet" href="../css/components/forms.css">
-  <link rel="stylesheet" href="../css/components/movie-card.css">
   <link rel="stylesheet" href="../css/components/filter-panel.css">
+  <link rel="stylesheet" href="../css/components/movie-card.css">
   <link rel="stylesheet" href="../css/components/states.css">
+  <link rel="stylesheet" href="../css/components/footer.css">
 
   <!-- Page Stylesheet -->
   <link rel="stylesheet" href="../css/pages/search.css">
 </head>
 <body class="search-page">
 
-  <!-- Main Navigation -->
+  <!-- 1. Fixed Cinematic Navbar -->
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-      <a href="../index.html" class="navbar__logo">Nestmovie</a>
+      
+      <!-- Brand Logo (Faithfully matching demo) -->
+      <a href="../index.html" class="navbar__logo">
+        <span class="navbar__logo-badge">NEST</span>
+        <span class="navbar__logo-text">MOVIE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
       <ul class="navbar__links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="search.html" class="active" aria-current="page">Search</a></li>
-        <li><a href="watchlist.html">My Watchlist</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="../index.html" class="navbar__link">New Movie</a></li>
+        <li><a href="search.html" class="navbar__link active" aria-current="page">Search & Discover</a></li>
+        <li><a href="watchlist.html" class="navbar__link">My Watchlist</a></li>
+        <li><a href="profile.html" class="navbar__link">Profile</a></li>
       </ul>
+
+      <!-- Action Buttons -->
+      <div class="navbar__actions">
+        <a href="login.html" class="navbar__btn navbar__btn--primary">Sign In</a>
+      </div>
+
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="search-page__main container">
+  <!-- 2. Main Search & Filter Interface -->
+  <main class="search-page__main">
 
-    <header class="search-page__header">
-      <h1 class="search-page__title">Search & Discover</h1>
-      <p class="search-page__subtitle">Find movies by title, genre, release year, language, or rating.</p>
+    <!-- Header Title Section -->
+    <header class="search-header">
+      <div class="search-header__badge-row">
+        <span class="search-header__badge">SEARCH & DISCOVER</span>
+      </div>
+      <h1 class="search-header__title">Explore the Cinematic Universe</h1>
+      <p class="search-header__subtitle">
+        Filter through award-winning masterpieces, blockbusters, and hidden gems across global cinema.
+      </p>
     </header>
 
-    <!-- Search Form & Advanced Filter Panel -->
+    <!-- Search Form & Discovery Filter Panel -->
     <form id="search-form" class="search-form" role="search" novalidate>
 
-      <!-- 1. Search Bar -->
+      <!-- Search Bar Input -->
       <div class="search-form__bar">
-        <label for="search-input" class="visually-hidden">Search by title</label>
         <div class="search-input-wrapper">
+          <!-- Search Icon (Lucide SVG) -->
+          <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+          
           <input
             type="search"
             id="search-input"
             name="q"
             class="search-form__input"
-            placeholder="Type a movie title..."
+            placeholder="Search by movie title, actor, director, or keyword (e.g. Spider-Man, Christopher Nolan, Sci-Fi)..."
             autocomplete="off"
           >
-          <button type="submit" id="search-submit-btn" class="btn btn--primary" aria-label="Submit search">
-            Search
+          
+          <button type="button" id="search-clear-btn" class="search-clear-btn" aria-label="Clear search input" hidden>
+            Clear
           </button>
         </div>
       </div>
 
-      <!-- 2. Filter Controls (Advanced Filter Panel) -->
-      <fieldset id="filter-panel" class="filter-panel">
-        <legend class="filter-panel__legend">Filters</legend>
+      <!-- Advanced Discovery Filter Panel (5 Columns) -->
+      <div id="filter-panel" class="filter-panel">
+        
+        <!-- Filter Header Bar -->
+        <div class="filter-panel__header">
+          <div class="filter-panel__title-box">
+            <!-- SlidersHorizontal Icon -->
+            <svg class="filter-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="21" x2="14" y1="4" y2="4"></line>
+              <line x1="10" x2="3" y1="4" y2="4"></line>
+              <line x1="21" x2="12" y1="12" y2="12"></line>
+              <line x1="8" x2="3" y1="12" y2="12"></line>
+              <line x1="21" x2="16" y1="20" y2="20"></line>
+              <line x1="12" x2="3" y1="20" y2="20"></line>
+              <line x1="14" x2="14" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="10" y2="14"></line>
+              <line x1="16" x2="16" y1="18" y2="22"></line>
+            </svg>
+            <span>Discovery Filters</span>
+            <span id="active-filter-badge" class="filter-panel__badge" hidden>0 active</span>
+          </div>
+
+          <button type="reset" id="filter-reset-btn" class="filter-panel__reset-btn">
+            <!-- RotateCcw Icon -->
+            <svg class="filter-panel__reset-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+            <span>Reset Filters</span>
+          </button>
+        </div>
+
+        <!-- Filter Grid -->
         <div class="filter-panel__grid">
 
-          <!-- Genre Filter -->
-          <div class="form-group filter-panel__group">
-            <label for="genre-select" class="form-label">Genre</label>
-            <select id="genre-select" name="genre" class="form-select">
-              <option value="">All Genres</option>
+          <!-- 1. Genre Filter -->
+          <div class="filter-group">
+            <label for="genre-select" class="filter-group__label">
+              <!-- Film Icon -->
+              <svg class="filter-group__label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="M7 3v18"></path>
+                <path d="M3 7.5h4"></path>
+                <path d="M3 12h18"></path>
+                <path d="M3 16.5h4"></path>
+                <path d="M17 3v18"></path>
+                <path d="M17 7.5h4"></path>
+                <path d="M17 16.5h4"></path>
+              </svg>
+              <span>Genre</span>
+            </label>
+            <select id="genre-select" name="genre" class="filter-group__select">
+              <option value="All">All</option>
+              <option value="Sci-Fi">Sci-Fi</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
+              <option value="Drama">Drama</option>
+              <option value="Thriller">Thriller</option>
               <option value="Animation">Animation</option>
               <option value="Comedy">Comedy</option>
               <option value="Crime">Crime</option>
-              <option value="Documentary">Documentary</option>
-              <option value="Drama">Drama</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Horror">Horror</option>
-              <option value="Mystery">Mystery</option>
+              <option value="Biography">Biography</option>
+              <option value="History">History</option>
               <option value="Romance">Romance</option>
-              <option value="Sci-Fi">Sci-Fi</option>
-              <option value="Thriller">Thriller</option>
+              <option value="Family">Family</option>
             </select>
           </div>
 
-          <!-- Minimum Rating Filter -->
-          <div class="form-group filter-panel__group">
-            <label for="rating-select" class="form-label">Minimum Rating</label>
-            <select id="rating-select" name="rating" class="form-select">
+          <!-- 2. Minimum Rating Filter -->
+          <div class="filter-group">
+            <label for="rating-select" class="filter-group__label">
+              <!-- Star Icon -->
+              <svg class="filter-group__label-icon filter-group__label-icon--star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>Minimum Rating</span>
+            </label>
+            <select id="rating-select" name="rating" class="filter-group__select">
               <option value="0">Any Rating</option>
-              <option value="9">★ 9.0+</option>
-              <option value="8">★ 8.0+</option>
-              <option value="7">★ 7.0+</option>
-              <option value="6">★ 6.0+</option>
-              <option value="5">★ 5.0+</option>
+              <option value="8.5">★ 8.5+ (Masterpieces)</option>
+              <option value="8.0">★ 8.0+ (Acclaimed)</option>
+              <option value="7.5">★ 7.5+ (Highly Recommended)</option>
+              <option value="7.0">★ 7.0+ (Good Cinema)</option>
             </select>
           </div>
 
-          <!-- Release Year Filter -->
-          <div class="form-group filter-panel__group">
-            <label for="year-input" class="form-label">Release Year</label>
-            <input
-              type="number"
-              id="year-input"
-              name="year"
-              class="form-input"
-              placeholder="e.g. 2024"
-              min="1900"
-              max="2026"
-            >
+          <!-- 3. Release Year Filter -->
+          <div class="filter-group">
+            <label for="year-select" class="filter-group__label">
+              <!-- Calendar Icon -->
+              <svg class="filter-group__label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 2v4"></path>
+                <path d="M16 2v4"></path>
+                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                <path d="M3 10h18"></path>
+              </svg>
+              <span>Release Era</span>
+            </label>
+            <select id="year-select" name="year" class="filter-group__select">
+              <option value="All Years">All Years</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2010s">2010s</option>
+              <option value="Classics">Classics</option>
+            </select>
           </div>
 
-          <!-- Language Filter -->
-          <div class="form-group filter-panel__group">
-            <label for="language-select" class="form-label">Language</label>
-            <select id="language-select" name="language" class="form-select">
-              <option value="">All Languages</option>
-              <option value="English">English</option>
-              <option value="Amharic">Amharic</option>
-              <option value="Spanish">Spanish</option>
-              <option value="French">French</option>
-              <option value="Hindi">Hindi</option>
-              <option value="Korean">Korean</option>
-              <option value="Japanese">Japanese</option>
+          <!-- 4. Country / Cinema Filter -->
+          <div class="filter-group">
+            <label for="country-select" class="filter-group__label">
+              <!-- Globe Icon -->
+              <svg class="filter-group__label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" x2="22" y1="12" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>Country / Cinema</span>
+            </label>
+            <select id="country-select" name="country" class="filter-group__select">
+              <option value="All Countries">All Countries</option>
+              <option value="United States">United States</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="South Korea">South Korea</option>
+              <option value="Japan">Japan</option>
+              <option value="France">France</option>
+            </select>
+          </div>
+
+          <!-- 5. Sort By Control -->
+          <div class="filter-group">
+            <label for="sort-select" class="filter-group__label">
+              <!-- ArrowUpDown Icon -->
+              <svg class="filter-group__label-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m3 16 4 4 4-4"></path>
+                <path d="M7 20V4"></path>
+                <path d="m21 8-4-4-4 4"></path>
+                <path d="M17 4v16"></path>
+              </svg>
+              <span>Sort By</span>
+            </label>
+            <select id="sort-select" name="sort" class="filter-group__select">
+              <option value="popularity">Most Popular</option>
+              <option value="rating">Highest IMDb Rating</option>
+              <option value="year">Newest Release</option>
+              <option value="title">Title (A-Z)</option>
             </select>
           </div>
 
         </div>
 
-        <div class="filter-panel__actions">
-          <button type="reset" id="filter-reset-btn" class="btn btn--secondary">
-            Clear Filters
-          </button>
-        </div>
-      </fieldset>
+      </div>
 
-      <!-- 3. Sorting Controls & Results Counter Bar -->
+      <!-- Results Count Bar -->
       <div class="search-toolbar">
         <div class="search-toolbar__count" aria-live="polite">
-          <p id="result-count" class="result-count">Showing movies...</p>
-        </div>
-
-        <div class="search-toolbar__sort">
-          <label for="sort-select" class="form-label">Sort by:</label>
-          <select id="sort-select" name="sort" class="form-select">
-            <option value="rating">Rating (High to Low)</option>
-            <option value="newest">Release Date (Newest)</option>
-            <option value="oldest">Release Date (Oldest)</option>
-            <option value="az">Title (A–Z)</option>
-          </select>
+          Showing <strong id="result-count">6</strong> movies
         </div>
       </div>
 
     </form>
 
-    <!-- 4. Three Mandatory State Views (Loading, Empty, Error) -->
-    <div id="search-loading" class="state state--loading" aria-live="polite">
-      <div class="spinner" aria-hidden="true"></div>
-      <p>Loading movies…</p>
+    <!-- 3. UI States (Person 3 Deliverables) -->
+    
+    <!-- Loading State -->
+    <div id="search-loading" class="state state--loading" hidden aria-live="polite">
+      <div class="state__spinner" aria-hidden="true"></div>
+      <p class="state__message">Searching the cinematic catalog…</p>
     </div>
 
+    <!-- Empty State (Exact Match to Demo SearchView.tsx line 290) -->
     <div id="search-empty" class="state state--empty" hidden aria-live="polite">
-      <h2 class="state__title">No movies found</h2>
-      <p class="state__message">Try adjusting your search terms or clearing some filters.</p>
-      <button type="button" id="empty-reset-btn" class="btn btn--secondary">Reset All Filters</button>
+      <!-- Film Reel Icon -->
+      <svg class="state__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+        <path d="M7 3v18"></path>
+        <path d="M3 7.5h4"></path>
+        <path d="M3 12h18"></path>
+        <path d="M3 16.5h4"></path>
+        <path d="M17 3v18"></path>
+        <path d="M17 7.5h4"></path>
+        <path d="M17 16.5h4"></path>
+      </svg>
+      <h3 class="state__title">No movies match your filters</h3>
+      <p class="state__message">
+        We couldn't find any titles with the selected criteria. Try adjusting your genre, rating threshold, or search keywords.
+      </p>
+      <button type="button" id="empty-reset-btn" class="state__btn">Reset All Filters</button>
     </div>
 
+    <!-- Error State -->
     <div id="search-error" class="state state--error" hidden aria-live="assertive">
-      <h2 class="state__title">Unable to load movies</h2>
-      <p class="state__message">There was an issue fetching the movie catalog. Please try again.</p>
-      <button type="button" id="retry-btn" class="btn btn--primary">Try Again</button>
+      <svg class="state__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" x2="12" y1="8" y2="12"></line>
+        <line x1="12" x2="12.01" y1="16" y2="16"></line>
+      </svg>
+      <h3 class="state__title">Unable to load movies</h3>
+      <p class="state__message">There was an issue fetching the movie catalog. Please check your connection and try again.</p>
+      <button type="button" id="retry-btn" class="state__btn">Try Again</button>
     </div>
 
-    <!-- 5. Dynamic Movie Results Grid -->
-    <section
-      id="search-results"
-      class="movie-grid"
-      aria-label="Movie search results"
-      aria-live="polite"
-    >
-      <!-- Person 4's movieCard component will insert movie cards here -->
+    <!-- 4. Results Grid: 6 Columns on Desktop (Exact Match to MovieCard.tsx in Demo) -->
+    <section id="search-results" class="movie-grid" aria-label="Search results" aria-live="polite">
+
+      <!-- Movie Card 1: Spider-Man: No Way Home -->
+      <article class="movie-card" data-movie-id="spiderman-no-way-home">
+        <div class="movie-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=600&q=80"
+            alt="Spider man No Way Home"
+            class="movie-card__poster"
+            loading="lazy"
+          >
+          <div class="movie-card__scrim" aria-hidden="true"></div>
+          
+          <div class="movie-card__badges">
+            <div class="movie-card__rating-badge">
+              <span class="movie-card__imdb-tag">IMDb</span>
+              <span class="movie-card__rating-val">8.2</span>
+            </div>
+            <button type="button" class="movie-card__bookmark-btn" aria-label="Add to Watchlist" data-action="toggle-watchlist">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="movie-card__trailer-overlay">
+            <button type="button" class="movie-card__play-btn" aria-label="Watch Trailer" data-action="play-trailer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="movie-card__info">
+          <div>
+            <h2 class="movie-card__title">Spider-Man: No Way Home</h2>
+            <div class="movie-card__meta">
+              <span>2021</span>
+              <span>·</span>
+              <span class="movie-card__genres">Sci-Fi, Action</span>
+            </div>
+          </div>
+          <div class="movie-card__footer">
+            <span>PG-13</span>
+            <span>1h 55m</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Movie Card 2: Dune: Part Two -->
+      <article class="movie-card" data-movie-id="dune-part-two">
+        <div class="movie-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80"
+            alt="Dune: Part Two"
+            class="movie-card__poster"
+            loading="lazy"
+          >
+          <div class="movie-card__scrim" aria-hidden="true"></div>
+
+          <div class="movie-card__badges">
+            <div class="movie-card__rating-badge">
+              <span class="movie-card__imdb-tag">IMDb</span>
+              <span class="movie-card__rating-val">8.6</span>
+            </div>
+            <button type="button" class="movie-card__bookmark-btn active" aria-label="In Watchlist" data-action="toggle-watchlist">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <div class="movie-card__trailer-overlay">
+            <button type="button" class="movie-card__play-btn" aria-label="Watch Trailer" data-action="play-trailer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="movie-card__info">
+          <div>
+            <h2 class="movie-card__title">Dune: Part Two</h2>
+            <div class="movie-card__meta">
+              <span>2024</span>
+              <span>·</span>
+              <span class="movie-card__genres">Sci-Fi, Adventure</span>
+            </div>
+          </div>
+          <div class="movie-card__footer">
+            <span>PG-13</span>
+            <span>2h 46m</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Movie Card 3: Oppenheimer -->
+      <article class="movie-card" data-movie-id="oppenheimer">
+        <div class="movie-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80"
+            alt="Oppenheimer"
+            class="movie-card__poster"
+            loading="lazy"
+          >
+          <div class="movie-card__scrim" aria-hidden="true"></div>
+
+          <div class="movie-card__badges">
+            <div class="movie-card__rating-badge">
+              <span class="movie-card__imdb-tag">IMDb</span>
+              <span class="movie-card__rating-val">8.9</span>
+            </div>
+            <button type="button" class="movie-card__bookmark-btn" aria-label="Add to Watchlist" data-action="toggle-watchlist">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="movie-card__trailer-overlay">
+            <button type="button" class="movie-card__play-btn" aria-label="Watch Trailer" data-action="play-trailer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="movie-card__info">
+          <div>
+            <h2 class="movie-card__title">Oppenheimer</h2>
+            <div class="movie-card__meta">
+              <span>2023</span>
+              <span>·</span>
+              <span class="movie-card__genres">Biography, Drama</span>
+            </div>
+          </div>
+          <div class="movie-card__footer">
+            <span>R</span>
+            <span>3h 00m</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Movie Card 4: Avengers: Endgame -->
+      <article class="movie-card" data-movie-id="avengers-endgame">
+        <div class="movie-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80"
+            alt="Avengers: Endgame"
+            class="movie-card__poster"
+            loading="lazy"
+          >
+          <div class="movie-card__scrim" aria-hidden="true"></div>
+
+          <div class="movie-card__badges">
+            <div class="movie-card__rating-badge">
+              <span class="movie-card__imdb-tag">IMDb</span>
+              <span class="movie-card__rating-val">8.4</span>
+            </div>
+            <button type="button" class="movie-card__bookmark-btn" aria-label="Add to Watchlist" data-action="toggle-watchlist">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="movie-card__trailer-overlay">
+            <button type="button" class="movie-card__play-btn" aria-label="Watch Trailer" data-action="play-trailer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="movie-card__info">
+          <div>
+            <h2 class="movie-card__title">Avengers: Endgame</h2>
+            <div class="movie-card__meta">
+              <span>2019</span>
+              <span>·</span>
+              <span class="movie-card__genres">Action, Adventure</span>
+            </div>
+          </div>
+          <div class="movie-card__footer">
+            <span>PG-13</span>
+            <span>3h 01m</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Movie Card 5: Interstellar -->
+      <article class="movie-card" data-movie-id="interstellar">
+        <div class="movie-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=600&q=80"
+            alt="Interstellar"
+            class="movie-card__poster"
+            loading="lazy"
+          >
+          <div class="movie-card__scrim" aria-hidden="true"></div>
+
+          <div class="movie-card__badges">
+            <div class="movie-card__rating-badge">
+              <span class="movie-card__imdb-tag">IMDb</span>
+              <span class="movie-card__rating-val">8.7</span>
+            </div>
+            <button type="button" class="movie-card__bookmark-btn" aria-label="Add to Watchlist" data-action="toggle-watchlist">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="movie-card__trailer-overlay">
+            <button type="button" class="movie-card__play-btn" aria-label="Watch Trailer" data-action="play-trailer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="movie-card__info">
+          <div>
+            <h2 class="movie-card__title">Interstellar</h2>
+            <div class="movie-card__meta">
+              <span>2014</span>
+              <span>·</span>
+              <span class="movie-card__genres">Sci-Fi, Adventure</span>
+            </div>
+          </div>
+          <div class="movie-card__footer">
+            <span>PG-13</span>
+            <span>2h 49m</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Movie Card 6: Parasite -->
+      <article class="movie-card" data-movie-id="parasite">
+        <div class="movie-card__media">
+          <img
+            src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=80"
+            alt="Parasite"
+            class="movie-card__poster"
+            loading="lazy"
+          >
+          <div class="movie-card__scrim" aria-hidden="true"></div>
+
+          <div class="movie-card__badges">
+            <div class="movie-card__rating-badge">
+              <span class="movie-card__imdb-tag">IMDb</span>
+              <span class="movie-card__rating-val">8.5</span>
+            </div>
+            <button type="button" class="movie-card__bookmark-btn" aria-label="Add to Watchlist" data-action="toggle-watchlist">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="movie-card__trailer-overlay">
+            <button type="button" class="movie-card__play-btn" aria-label="Watch Trailer" data-action="play-trailer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="movie-card__info">
+          <div>
+            <h2 class="movie-card__title">Parasite</h2>
+            <div class="movie-card__meta">
+              <span>2019</span>
+              <span>·</span>
+              <span class="movie-card__genres">Drama, Thriller</span>
+            </div>
+          </div>
+          <div class="movie-card__footer">
+            <span>R</span>
+            <span>2h 12m</span>
+          </div>
+        </div>
+      </article>
+
     </section>
 
   </main>
 
-  <!-- Shared Footer -->
+  <!-- 5. Cinematic Footer (Exact Match to Demo Footer.tsx) -->
   <footer class="site-footer">
-    <p>&copy; 2026 Nestmovie</p>
+    <div class="site-footer__container">
+      <div class="site-footer__grid">
+        
+        <!-- Brand Column -->
+        <div>
+          <a href="../index.html" class="navbar__logo">
+            <span class="navbar__logo-badge">NEST</span>
+            <span class="navbar__logo-text">MOVIE</span>
+          </a>
+          <p class="site-footer__brand-desc">
+            The premier cinematic discovery platform. Explore trending releases, curated global cinema, official trailers, and curate your ultimate movie watchlist.
+          </p>
+          <p class="site-footer__tagline">Crafted for cinephiles & movie lovers worldwide</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="site-footer__col-title">Explore</h4>
+          <ul class="site-footer__list">
+            <li><a href="../index.html" class="site-footer__link">New Movie & Featured</a></li>
+            <li><a href="search.html" class="site-footer__link">Search & Filters</a></li>
+            <li><a href="watchlist.html" class="site-footer__link">My Watchlist</a></li>
+            <li><a href="profile.html" class="site-footer__link">Profile & Preferences</a></li>
+          </ul>
+        </div>
+
+        <!-- Cinephile Categories -->
+        <div>
+          <h4 class="site-footer__col-title">Cinema</h4>
+          <ul class="site-footer__list">
+            <li><a href="search.html?genre=Sci-Fi" class="site-footer__link">Sci-Fi Masterpieces</a></li>
+            <li><a href="search.html?genre=Action" class="site-footer__link">Action & Adventure</a></li>
+            <li><a href="search.html?rating=8.5" class="site-footer__link">IMDb Top Rated</a></li>
+            <li><a href="search.html?country=France" class="site-footer__link">Global Cinema</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 NestMovie. Built for Web Development Project.</p>
+        <p>No external frameworks or libraries &mdash; Pure HTML &amp; CSS.</p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Single Entry ES6 Module Script -->
+  <!-- Page Controller Script (ES6 Module) -->
   <script type="module" src="../js/pages/search.js"></script>
 </body>
 </html>
