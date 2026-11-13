@@ -6,9 +6,9 @@
   <title>My Watchlist — Nestmovie</title>
 </head>
 <body>
-  <header >
-    <nav >
-      <a >Nestmovie</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="../index.html">Nestmovie</a>
       <ul class="navbar__list">
         <li><a href="../index.html">Home</a></li>
         <li><a href="search.html">Search</a></li>
@@ -18,18 +18,18 @@
     </nav>
   </header>
 
-  <main >
+  <main>
     <header>
-      <h1 >My Watchlist</h1>
+      <h1>My Watchlist</h1>
       <p>
-        <span>0</span> movies saved
+        <data value="3">3</data> movies saved
       </p>
     </header>
 
     <form>
       <div>
         <label for="watchlist-filter">Filter</label>
-        <select  name="filter">
+        <select id="watchlist-filter" name="filter">
           <option value="all" selected>All</option>
           <option value="unwatched">Want to watch</option>
           <option value="watched">Watched</option>
@@ -47,24 +47,39 @@
       </div>
     </form>
 
-    <p class="watchlist__state" id="watchlist-loading" hidden>Loading your watchlist…</p>
+    <p class="watchlist__state" id="watchlist-loading" role="status" hidden>Loading your watchlist…</p>
 
-    <div class="watchlist__state" id="watchlist-empty" hidden>
+    <section class="watchlist__state" id="watchlist-empty" aria-labelledby="watchlist-empty-heading" hidden>
+      <h2 id="watchlist-empty-heading">No saved movies</h2>
       <p>Your watchlist is empty.</p>
       <a href="search.html">Find movies to add</a>
-    </div>
+    </section>
 
-    <div class="watchlist__state" id="watchlist-error" hidden>
+    <section class="watchlist__state" id="watchlist-error" role="alert" aria-labelledby="watchlist-error-heading" hidden>
+      <h2 id="watchlist-error-heading">Watchlist unavailable</h2>
       <p>We couldn't load your watchlist.</p>
       <button type="button" id="watchlist-retry">Try again</button>
-    </div>
+    </section>
 
-    <section>
-      <article >
+    <section aria-labelledby="watchlist-movies-heading">
+      <h2 id="watchlist-movies-heading">Saved movies</h2>
+      <article>
         <div></div>
         <div>
-          <h2>Inception</h2>
-          <p>2010 · 8.8</p>
+          <h3>Inception</h3>
+          <details>
+            <summary>Year and rating</summary>
+            <dl>
+              <div>
+                <dt>Release year</dt>
+                <dd><time datetime="2010">2010</time></dd>
+              </div>
+              <div>
+                <dt>Rating</dt>
+                <dd><data value="8.8">8.8</data>/10</dd>
+              </div>
+            </dl>
+          </details>
           <p >
             <span >Watched</span>
             <span >Favorite</span>
@@ -77,10 +92,23 @@
         </div>
       </article>
 
-      <article >
+      <article>
         <div ></div>
-        <div >The Dark Knight</h2>
-          <p >2008 · 9.0</p>
+        <div>
+          <h3>The Dark Knight</h3>
+          <details>
+            <summary>Year and rating</summary>
+            <dl>
+              <div>
+                <dt>Release year</dt>
+                <dd><time datetime="2008">2008</time></dd>
+              </div>
+              <div>
+                <dt>Rating</dt>
+                <dd><data value="9.0">9.0</data>/10</dd>
+              </div>
+            </dl>
+          </details>
           <div >
             <button type="button" data-action="toggle-watched" data-movie-id="m002" aria-pressed="false">Mark watched</button>
             <button type="button" data-action="toggle-favorite" data-movie-id="m002" aria-pressed="false">Favorite</button>
@@ -92,8 +120,20 @@
       <article  data-movie-id="m003">
         <div ></div>
         <div >
-          <h2>Spirited Away</h2>
-          <p >2001 · 8.6</p>
+          <h3>Spirited Away</h3>
+          <details>
+            <summary>Year and rating</summary>
+            <dl>
+              <div>
+                <dt>Release year</dt>
+                <dd><time datetime="2001">2001</time></dd>
+              </div>
+              <div>
+                <dt>Rating</dt>
+                <dd><data value="8.6">8.6</data>/10</dd>
+              </div>
+            </dl>
+          </details>
           <p>
             <span>Favorite</span>
           </p>
