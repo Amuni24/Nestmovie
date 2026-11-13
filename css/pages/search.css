@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Nestmovie Search Page Styles
+   Owner: Person 3 (@worku404)
+   Responsive Results Grid & Animated Cards
+   ========================================================================== */
+
+.search-page {
+  background-color: var(--bg-app, #0b0e14);
+  color: var(--text-primary, #f1f5f9);
+  min-height: 100vh;
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+}
+
+.search-page__main {
+  max-width: var(--max-width, 1280px);
+  margin: 0 auto;
+  padding: 7rem 1rem 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .search-page__main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-page__main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Header Section */
+.search-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-header__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-header__badge {
+  background-color: var(--color-gold, #F5C518);
+  color: #000000;
+  font-weight: 800;
+  font-size: 0.6875rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-sm, 4px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.search-header__title {
+  font-family: var(--font-heading, 'Outfit', 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-white, #ffffff);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .search-header__title {
+    font-size: 2.25rem;
+  }
+}
+
+.search-header__subtitle {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #94a3b8);
+}
+
+@media (min-width: 640px) {
+  .search-header__subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+/* Responsive Results Grid: 6 Columns on Desktop */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Animated Cards (Person 3 Deliverable in team-roles.md) */
+.movie-card {
+  animation: cardFadeIn 0.35s ease-out forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
