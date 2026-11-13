@@ -4,23 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover amazing movies, explore genres and find your next favourite film.">
-    <title>MovieVerse | Discover Movies</title>
-</head>
 
+    <meta name="description"
+          content="Discover trending movies, explore genres and find your next favourite film with NestMovie.">
+
+    <title>NestMovie | Discover Movies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/movie-card.css">
+    <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/pages/home.css">
+</head>
 <body>
 
-    <header>
-        <h1>🎬 MovieVerse</h1>
-        <p>Your destination for discovering great movies.</p>
+    <header class="navbar">
+    <a href="discover.html" class="navbar__brand">
+        Nest<span>Movie</span>
+    </a>
 
-        <nav aria-label="Main navigation">
-            <a href="movie.html">Home</a> |
-            <a href="search.html">Explore Movies</a> |
-            <a href="watchlist.html">My Watchlist</a>
-        </nav>
-    </header>
-
+    <nav class="navbar__links" aria-label="Main navigation">
+        <a href="discover.html">Home</a>
+        <a href="search.html">Explore Movies</a>
+        <a href="watchlist.html">My Watchlist</a>
+    </nav>
+</header>
     <hr>
 
     <main>
@@ -42,205 +55,188 @@
 
         <hr>
 
-        <section>
-            <h2>⭐ Featured Movie</h2>
+        <section class="featured">
+    <div class="featured__content">
+        <span class="featured__label">FEATURED MOVIE</span>
 
-            <figure>
-                <img
-                    src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-                    alt="Interstellar official movie poster"
-                    width="250"
-                    height="375"
-                >
-                <figcaption>Featured movie of the week</figcaption>
-            </figure>
+        <h2 class="featured__title">Interstellar</h2>
 
-            <h3>Interstellar (2014)</h3>
-            <p>⭐ Rating: 8.7/10</p>
-            <p>Genre: Science Fiction / Adventure</p>
+        <div class="featured__meta">
+            <span>2014</span>
+            <span>⭐ 8.7/10</span>
+            <span>Sci-Fi / Adventure</span>
+        </div>
 
-            <p>
-                A team of explorers travels beyond this galaxy
-                to discover whether mankind has a future among the stars.
-            </p>
+        <p class="featured__description">
+            A team of explorers travels beyond this galaxy
+            to discover whether mankind has a future among the stars.
+        </p>
 
-            <a href="search.html?q=Interstellar">Discover More</a>
-        </section>
+        <a class="featured__button" href="search.html?q=Interstellar">
+            Discover More
+        </a>
+    </div>
+
+    <div class="featured__poster">
+        <img
+            src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+            alt="Interstellar movie poster"
+        >
+    </div>
+</section>
 
         <hr>
 
-        <section>
-            <h2>🔥 Popular Movies</h2>
-            <p>Explore some of the most loved movies of all time.</p>
+       <section class="popular">
+    <div class="section-heading">
+        <span class="section-heading__label">TRENDING NOW</span>
+        <h2>Popular Movies</h2>
+        <p>Explore movies everyone is talking about.</p>
+    </div>
 
-            <article>
-                <figure>
-                    <img
-                        src="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
-                        alt="Inception movie poster"
-                        width="185"
-                        height="278"
-                        loading="lazy"
-                    >
-                    <figcaption>Inception poster</figcaption>
-                </figure>
-
+    <div class="movie-grid">
+        <article class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
+                 alt="Inception movie poster">
+            <div class="movie-card__content">
                 <h3>Inception</h3>
-                <p>Year: 2010</p>
-                <p>Genre: Science Fiction / Thriller</p>
-                <p>⭐ 8.8/10</p>
+                <p>2010 · Sci-Fi / Thriller</p>
+                <span>⭐ 8.8/10</span>
                 <a href="search.html?q=Inception">View Movie</a>
-            </article>
+            </div>
+        </article>
 
-            <article>
-                <figure>
-                    <img
-                        src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-                        alt="The Dark Knight movie poster"
-                        width="185"
-                        height="278"
-                        loading="lazy"
-                    >
-                    <figcaption>The Dark Knight poster</figcaption>
-                </figure>
-
+        <article class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+                 alt="The Dark Knight movie poster">
+            <div class="movie-card__content">
                 <h3>The Dark Knight</h3>
-                <p>Year: 2008</p>
-                <p>Genre: Action / Crime</p>
-                <p>⭐ 9.0/10</p>
+                <p>2008 · Action / Crime</p>
+                <span>⭐ 9.0/10</span>
                 <a href="search.html?q=The+Dark+Knight">View Movie</a>
-            </article>
+            </div>
+        </article>
 
-            <article>
-                <figure>
-                    <img
-                        src="https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
-                        alt="Avatar movie poster"
-                        width="185"
-                        height="278"
-                        loading="lazy"
-                    >
-                    <figcaption>Avatar poster</figcaption>
-                </figure>
-
+        <article class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
+                 alt="Avatar movie poster">
+            <div class="movie-card__content">
                 <h3>Avatar</h3>
-                <p>Year: 2009</p>
-                <p>Genre: Fantasy / Science Fiction</p>
-                <p>⭐ 7.9/10</p>
+                <p>2009 · Fantasy / Sci-Fi</p>
+                <span>⭐ 7.9/10</span>
                 <a href="search.html?q=Avatar">View Movie</a>
-            </article>
+            </div>
+        </article>
 
-            <article>
-                <figure>
-                    <img
-                        src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
-                        alt="Titanic movie poster"
-                        width="185"
-                        height="278"
-                        loading="lazy"
-                    >
-                    <figcaption>Titanic poster</figcaption>
-                </figure>
-
+        <article class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+                 alt="Titanic movie poster">
+            <div class="movie-card__content">
                 <h3>Titanic</h3>
-                <p>Year: 1997</p>
-                <p>Genre: Romance / Drama</p>
-                <p>⭐ 7.9/10</p>
+                <p>1997 · Romance / Drama</p>
+                <span>⭐ 7.9/10</span>
                 <a href="search.html?q=Titanic">View Movie</a>
-            </article>
-
-        </section>
-
-        <hr>
-
-        <section>
-            <h2>🎭 Explore Movie Genres</h2>
-
-            <ul>
-                <li><a href="search.html?genre=action">Action</a></li>
-                <li><a href="search.html?genre=adventure">Adventure</a></li>
-                <li><a href="search.html?genre=comedy">Comedy</a></li>
-                <li><a href="search.html?genre=drama">Drama</a></li>
-                <li><a href="search.html?genre=horror">Horror</a></li>
-                <li><a href="search.html?genre=romance">Romance</a></li>
-                <li><a href="search.html?genre=scifi">Science Fiction</a></li>
-                <li><a href="search.html?genre=thriller">Thriller</a></li>
-            </ul>
-        </section>
+            </div>
+        </article>
+    </div>
+</section>
 
         <hr>
 
-        <section>
-            <h2>🌟 More Movies to Discover</h2>
+        <section class="genres">
+    <div class="section-heading">
+        <span class="section-heading__label">FIND YOUR MOOD</span>
+        <h2>Explore Movie Genres</h2>
+        <p>Choose a genre and discover your next favourite film.</p>
+    </div>
 
-            <article>
-                <figure>
-                    <img
-                        src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-                        alt="Oppenheimer movie poster"
-                        width="185"
-                        height="278"
-                        loading="lazy"
-                    >
-                    <figcaption>Oppenheimer poster</figcaption>
-                </figure>
+    <div class="genres__list">
+        <a href="search.html?genre=action">Action</a>
+        <a href="search.html?genre=adventure">Adventure</a>
+        <a href="search.html?genre=comedy">Comedy</a>
+        <a href="search.html?genre=drama">Drama</a>
+        <a href="search.html?genre=horror">Horror</a>
+        <a href="search.html?genre=romance">Romance</a>
+        <a href="search.html?genre=scifi">Science Fiction</a>
+        <a href="search.html?genre=thriller">Thriller</a>
+    </div>
+</section>
+        <hr>
 
+       <section class="more-movies">
+    <div class="section-heading">
+        <span class="section-heading__label">MORE TO EXPLORE</span>
+        <h2>More Movies to Discover</h2>
+        <p>Find more stories worth watching.</p>
+    </div>
+
+    <div class="movie-grid">
+        <article class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+                 alt="Oppenheimer movie poster">
+            <div class="movie-card__content">
                 <h3>Oppenheimer</h3>
-                <p>Year: 2023</p>
-                <p>Genre: Drama / History</p>
+                <p>2023 · Drama / History</p>
                 <a href="search.html?q=Oppenheimer">View Movie</a>
-            </article>
+            </div>
+        </article>
 
-            <article>
-                <figure>
-                    <img
-                        src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
-                        alt="Spider-Man Across the Spider-Verse movie poster"
-                        width="185"
-                        height="278"
-                        loading="lazy"
-                    >
-                    <figcaption>Spider-Man poster</figcaption>
-                </figure>
-
+        <article class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
+                 alt="Spider-Man: Across the Spider-Verse movie poster">
+            <div class="movie-card__content">
                 <h3>Spider-Man: Across the Spider-Verse</h3>
-                <p>Year: 2023</p>
-                <p>Genre: Animation / Action</p>
+                <p>2023 · Animation / Action</p>
                 <a href="search.html?q=Spider-Man">View Movie</a>
-            </article>
-
-        </section>
-
+            </div>
+        </article>
+    </div>
+</section>
         <hr>
 
-        <section>
-            <h2>📌 Create Your Watchlist</h2>
-
-            <p>
-                Keep all the movies you want to watch
-                together in your personal collection.
-            </p>
-
-            <a href="watchlist.html">Explore My Watchlist</a>
-        </section>
+        <section class="watchlist-cta">
+    <div class="watchlist-cta__content">
+        <span>YOUR NEXT MOVIE NIGHT STARTS HERE</span>
+        <h2>Save Movies You Love</h2>
+        <p>
+            Keep track of the movies you want to watch
+            and build your personal movie collection.
+        </p>
+        <a href="watchlist.html">Explore My Watchlist</a>
+    </div>
+</section>
 
     </main>
 
     <hr>
 
-    <footer>
-        <h2>🎬 MovieVerse</h2>
-        <p>Discover. Explore. Enjoy.</p>
+    <footer class="footer">
+    <div class="footer__content">
+        <div class="footer__brand">
+            <a href="discover.html">Nest<span>Movie</span></a>
+            <p>Your destination for discovering great movies and unforgettable stories.</p>
+        </div>
 
-        <nav aria-label="Footer navigation">
-            <a href="movie.html">Home</a> |
-            <a href="search.html">Search</a> |
-            <a href="watchlist.html">Watchlist</a>
-        </nav>
+        <div class="footer__links">
+            <h3>Explore</h3>
+            <a href="discover.html">Home</a>
+            <a href="search.html">Search Movies</a>
+            <a href="watchlist.html">My Watchlist</a>
+        </div>
 
-        <p>&copy; 2026 MovieVerse. All rights reserved.</p>
+        <div class="footer__links">
+            <h3>Popular Genres</h3>
+            <a href="search.html?genre=action">Action</a>
+            <a href="search.html?genre=drama">Drama</a>
+            <a href="search.html?genre=scifi">Science Fiction</a>
+            <a href="search.html?genre=thriller">Thriller</a>
+        </div>
+    </div>
+
+    <div class="footer__bottom">
+        <p>&copy; 2026 NestMovie. All rights reserved.</p>
         <p>Movie poster images are served by TMDB.</p>
-    </footer>
-
+    </div>
+</footer>
 </body>
 </html>
