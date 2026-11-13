@@ -1,0 +1,249 @@
+
+body {
+    margin: 0;
+    background-color: #0b0e14;
+    color: #f1f5f9;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+}
+.featured {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 70px 8%;
+    background: linear-gradient(120deg, #0b0e14, #151c2b);
+}
+
+.featured__content {
+    max-width: 600px;
+}
+
+.featured__label {
+    color: #facc15;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.featured__title {
+    margin: 18px 0;
+    color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.featured__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.featured__description {
+    margin: 24px 0;
+    color: #94a3b8;
+    line-height: 1.8;
+}
+
+.featured__button {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 6px;
+    background: #facc15;
+    color: #080a0f;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.featured__button:hover {
+    background: #eab308;
+}
+
+.featured__poster img {
+    display: block;
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgb(0 0 0 / 35%);
+}
+
+@media (max-width: 700px) {
+    .featured {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 45px 6%;
+    }
+
+    .featured__poster {
+        align-self: center;
+    }
+
+    .featured__poster img {
+        width: 210px;
+    }
+}
+/* Popular Movies Section */
+.popular {
+    padding: 50px 6%;
+    background: #0b0e14;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading__label {
+    color: #facc15;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+}
+
+.section-heading p {
+    color: #94a3b8;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+@media (max-width: 900px) {
+    .movie-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.more-movies {
+    padding: 50px 6%;
+    background: #0f1420;
+}
+
+.more-movies .movie-grid {
+    grid-template-columns: repeat(2, minmax(0, 240px));
+}
+
+@media (max-width: 550px) {
+    .more-movies .movie-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+/* Movie Genres */
+.genres {
+    padding: 50px 6%;
+    background: #0b0e14;
+}
+
+.genres__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.genres__list a {
+    padding: 12px 22px;
+    border: 1px solid #293449;
+    border-radius: 25px;
+    color: #cbd5e1;
+    background: #111827;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.genres__list a:hover {
+    color: #080a0f;
+    background: #facc15;
+    border-color: #facc15;
+}
+/* Watchlist Call to Action */
+.watchlist-cta {
+    margin: 50px 6%;
+    padding: 45px 30px;
+    border: 1px solid #293449;
+    border-radius: 14px;
+    background: linear-gradient(120deg, #151c2b, #0b0e14);
+    text-align: center;
+}
+
+.watchlist-cta__content > span {
+    color: #facc15;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.watchlist-cta h2 {
+    color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+}
+
+.watchlist-cta p {
+    max-width: 550px;
+    margin: 0 auto 24px;
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+.watchlist-cta a {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    background: #facc15;
+    color: #080a0f;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.watchlist-cta a:hover {
+    background: #eab308;
+}
+/* Responsive page layout */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+    .section-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-heading p {
+        font-size: 0.9rem;
+    }
+
+    .watchlist-cta {
+        margin: 35px 4%;
+        padding: 35px 20px;
+    }
+}
